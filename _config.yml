@@ -10,11 +10,12 @@ pygments: true
 # so be sure to set them if your theme uses them.
 #
 title : Timlog
-tagline: Site Tagline
+tagline: fire in the hole
 author :
   name : Timmy Chen
   email : chentm@gmail.com
   github : chentmin
+  feedburner: timlog
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
