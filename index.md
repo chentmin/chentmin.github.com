@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: 随便瞎写写
 tagline: 反正没人看
 ---
