@@ -64,7 +64,7 @@ tagline: 硅谷是程序员的天堂
 
 ## Github
 
-使用Campfire异步留言交流. 创立的头两年没有办公室, 找人就在Campfire上给他留言, 等他有空时回复. 每个人和别人交流都是异步的, 自己在干活的时候不会被打扰, 休息时去检查下Campfire的log.[^hour]
+使用37signals的[Campfire](http://campfirenow.com/)异步留言交流. 创立的头两年没有办公室, 找人就在Campfire上给他留言, 等他有空时回复. 每个人和别人交流都是异步的, 自己在干活的时候不会被打扰, 休息时去检查下Campfire的log.[^hour]
 
     - Wake up around 10am, check Campfire logs, clear overnight support tickets
     - Bus into work and grab lunch around noon or 1
