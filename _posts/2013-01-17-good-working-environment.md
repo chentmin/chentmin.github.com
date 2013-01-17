@@ -15,7 +15,7 @@ tagline: 硅谷是程序员的天堂
 # 工作环境
 
 
-## [美国的小公司](http://www.ruanyifeng.com/blog/2009/02/fog_creek_s_new_office.html) 
+### [美国的小公司](http://www.ruanyifeng.com/blog/2009/02/fog_creek_s_new_office.html) 
 
 办公环境主要考虑
 
@@ -34,7 +34,7 @@ tagline: 硅谷是程序员的天堂
 
   ![3](/images/2013_01_17/jo19.jpg)
 
-## Google
+### Google
 
   - 隔音休息床
 
@@ -62,7 +62,7 @@ tagline: 硅谷是程序员的天堂
 
 程序员是个特殊的职业, 脑子不清醒时写的代码的贡献值是负的, 写一小时可能引入无数bug, 未来需要花一星期去找. 每个人每天只有几个小时的黄金时间, 这段时间如果能不受打扰, 会有很高的产出. 美国特别崇尚工作效率, 也挖空心思想提高程序员的效率. 上面舒适的工作环境也是为了这个目的. 他们异步(Asynchronize)的交流方式, 避免了程序员被打扰, 我觉得是关键中的关键.
 
-## Github
+### Github
 
 使用37signals的[Campfire](http://campfirenow.com/)异步留言交流. 创立的头两年没有办公室, 找人就在Campfire上给他留言, 等他有空时回复. 每个人和别人交流都是异步的, 自己在干活的时候不会被打扰, 休息时去检查下Campfire的log.[^hour]
 
@@ -72,11 +72,11 @@ tagline: 硅谷是程序员的天堂
     - Go home and work/relax from my couch until 2am, or:
     - Go out and drink with coworkers (more on this later)
 
-## Google
+### Google
 
 关键字: Email. 交流, 预约开会, 预约面试官, 全是Email. 可以在任何地方办公, 上下班不需要打卡, 公司内部也有很多独立间供办公. 可以闷头写代码, 有时间检查下Email. 一样也是异步的.
 
-## 中国
+### 中国
 
 无数人会找你交流, 打断你思路, 影响你效率. 有人碰到个问题, 就大声吼一下:"哎, 这个经脉升级消耗不对啊". 然后配表的, 做ui的, 写服务器的就开始排查问题. 你不能戴耳机, 你得时刻听着空气中的对话, 筛选其中和自己有关的内容, 予以回应.
 
@@ -84,15 +84,15 @@ tagline: 硅谷是程序员的天堂
 # 工作内容
 
 
-## [Github](http://zachholman.com/posts/how-github-works-creativity/)
+### [Github](http://zachholman.com/posts/how-github-works-creativity/)
 
 做自己感兴趣的功能, 发挥自己的创造力. 
 
-## Google
+### Google
 
 可以自己挑选感兴趣的组, 只要那个组的Boss也要你, 就可以换. 20%的工作时间可以做自己感兴趣的项目(不过听说工作很忙, 没时间...). 
 
-## 中国
+### 中国
 
 产品经理决定, 给需求文档. 哥们开始干吧, 祝你好运!
   ![wtf](/images/2013_01_17/wtf.jpg)
@@ -103,7 +103,7 @@ tagline: 硅谷是程序员的天堂
 
 当程序员能自己决定做什么, 能给项目加上自己想要的功能, 并有足够的时间/自由度去完成它的时候, 那种感觉, 那迸发的灵感, 那主宰自己并改变世界的感觉, `卧槽`. 我想要这种感觉, 我喜欢这种感觉, 我想去美国. 
 
-## 美国
+### 美国
 
 * 工作环境舒适
 * 工作时间自由, work life balance
@@ -111,7 +111,7 @@ tagline: 硅谷是程序员的天堂
 * 做自己感兴趣的项目
 
 
-## 中国
+### 中国
 
 * 格子间, 旁边的哥们要去上厕所, 你椅子得往前点让他出去
 * 迟到扣钱, 加班`自愿`. 不肯加班? 不认同公司的文化! 没事干也耗着
