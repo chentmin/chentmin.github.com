@@ -118,10 +118,9 @@ tagline: 硅谷是程序员的天堂
 * 别想有多少清净时间可以码码, 当然你从早到晚都得码
 * 那傻逼策划整天改来改去的[^wtf] 
 
-
-
 EOF
 
+---
 
 [^hour]: [How github works](http://zachholman.com/posts/how-github-works-hours/)
 [^wtf]: 这句话说得太好了, 又表示对工作内容的不认同, 又表示需求频繁在改
