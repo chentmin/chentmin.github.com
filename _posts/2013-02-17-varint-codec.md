@@ -158,3 +158,5 @@ decode long
       }
       throw MALFORMED_VARINT;
     }
+
+EOF
