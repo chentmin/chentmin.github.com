@@ -36,5 +36,11 @@
     {% include JB/tags_list %}
     </ul>
   {% endunless %}  
+
+  <h4>RECENT POSTS</h4>
+{% for post in site.posts limit:5 %}
+<a href="{{ post.url }}">{{ post.title }}</a> <br />
+{% endfor %}
+
   </div>
 </div>
