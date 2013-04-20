@@ -18,9 +18,11 @@ title: GraphicsMagick 比JMagick 好用太多了
 要把图片左右换个方向
 
         gm convert -flop 1.png out.png
+
 上下换个方向
-mark
+
         gm convert -flip 1.png out.png
+        
 无比强大, 写个批处理脚本, 能做到很多事情.
 
 ---

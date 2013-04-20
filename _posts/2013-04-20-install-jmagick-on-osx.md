@@ -18,6 +18,7 @@ title: OSX下安装JMagick
         cd JMagick-6.2.4-1
         // 需要jni.h包头, 我用1.7带的不行, 用1.6的就行
         ./configure --with-java-includes=/System/Library/Frameworks/JavaVM.framework/Headers/
+        
         make
         sudo make install
 
@@ -25,4 +26,6 @@ title: OSX下安装JMagick
         
         sudo cp lib/libJMagick.so /usr/local/lib/libJMagick.dylib
 
-4. java下使用编译出来的lib/jmagick.jar或者用maven里的6.2.4版, 加jvm参数启动 -Djava.library.path=/usr/local/lib
+4. java下使用编译出来的lib/jmagick.jar或者用maven里的6.2.4版, 加jvm参数启动
+
+        -Djava.library.path=/usr/local/lib
