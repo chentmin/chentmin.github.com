@@ -34,7 +34,7 @@ Biased Locking 介绍
 对比下synchronized字段和reentrantLock的性能
 ----
 
-单线程下, 使用ReentrantLock: 53,030,318 ops/sec. 比synchronized慢3倍. 和Martin Thompson的[测试](http://mechanical-sympathy.blogspot.com/2011/11/biased-locking-osr-and-benchmarking-fun.html)结果不同. Martin测试的结果是synchronized字段的锁只有在2个线程竞争的情况下, 才比reentrantLock更快. 线程数越多, renentrantLock的优势越大.
+单线程下, 使用ReentrantLock: 53,030,318 ops/sec. 比synchronized慢3倍. 和Martin Thompson的[测试(需翻墙)](http://mechanical-sympathy.blogspot.com/2011/11/biased-locking-osr-and-benchmarking-fun.html)结果不同. Martin测试的结果是synchronized字段的锁只有在2个线程竞争的情况下, 才比reentrantLock更快. 线程数越多, renentrantLock的优势越大.
 
 
 贴代码
