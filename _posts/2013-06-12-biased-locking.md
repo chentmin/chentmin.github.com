@@ -30,6 +30,7 @@ Biased Locking 介绍
 2. 至少到现在为止, 只对内置的`synchronized`字段的锁有效. 对`ReentrantLock`无效
 3. `一旦有另一个线程锁过这个锁之后, 就算完全没有发生锁竞争, 优化就会取消`
 4. 取消的锁优化只针对这个锁对象, 而不是代码块. 新建个锁对象, 又可以被优化
+5. 取消过优化的锁, 加锁的消耗比直接不开启UseBiasedLocking, 更大. 大5%左右
 
 对比下synchronized字段和reentrantLock的性能
 ----
