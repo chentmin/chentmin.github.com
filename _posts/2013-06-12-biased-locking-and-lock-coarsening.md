@@ -2,7 +2,7 @@
 tags: [多线程, 性能, 技术]
 layout: post
 category: tech
-title: Biased Locking
+title: Biased Locking and Lock Coarsening
 tagline: 
 ---
 
@@ -101,11 +101,111 @@ Martin的测试是在java 1.6下面跑的, 我拿了他的测试代码, 在java 
 
 </table>
 
+意外的发现
+-----
+
+使用Martin的代码跑, -UseBiasedLocking 单线程, 数据是 51,945,186 ops/sec. 但是用我自己的代码跑, 同样的参数下 200,601,805 ops/sec. 看来看去代码都是相同的, 唯一的解释就是jvm给我的代码做了更多的优化. 最后发现, 带上 `-XX:-EliminateLocks` 参数后跑我的代码, 性能终于**只有**51,793,821 ops/sec 了. 
+
+Lock Coarsening
+-----
+
+把多次加锁合并为一次加锁. 比如以下代码
+
+    synchronized{
+        doStuff();
+    }
+
+    synchronized{
+        doAnotherStuff();
+    }
+
+jvm可以合并为
+
+    synchronized{
+        doStuff();
+        doAnotherStuff();
+    }
+
+甚至在2个同步块之间有其他没同步的代码, jvm也可以把那些代码移到同步块中. jvm只是不可以把同步块中的代码移出去.
+
+但是这么做可能会导致一次操作拥有太长时间的锁, 所以jvm在长循环中不会使用这个优化
+
+只要把Martin的代码的count从long改为int, 代码性能马上也提升到 207,231,294 ops/sec 了
+
+    private void jvmLockInc(){
+        // long count = iterationLimit / numThreads;
+        int count = (int) (iterationLimit / numThreads);
+        while (0 != count--){
+            synchronized (jvmLock){
+                ++counter;
+            }
+        }
+    }
+
+Martin的测试, with Lock Coarsening
+----
+
+重新跑一遍Martin的测试
 
 
-贴代码
+<table  border="1">
+    <tr>
+        <td>Threads</td>
+        <td>-UseBiasedLocking</td>
+        <td>+UseBiasedLocking</td>
+        <td>ReentrantLock</td>
+    </tr>
+
+    <tr>
+        <td>1</td>
+        <td>207,268,577</td>
+        <td>1,673,483,322</td>
+        <td>62,634,436</td>
+    </tr>
+
+    <tr>
+        <td>2</td>
+        <td>91,527,148</td>
+        <td>86,358,425</td>
+        <td>61,109,372</td>
+    </tr>
+
+    <tr>
+        <td>3</td>
+        <td>113,451,592</td>
+        <td>107,976,924</td>
+        <td>54,830,405</td>
+    </tr>
+
+    <tr>
+        <td>4</td>
+        <td>120,471,186</td>
+        <td>112,403,653</td>
+        <td>42,624,056</td>
+    </tr>
+
+
+    <tr>
+        <td>5</td>
+        <td>114,966,499</td>
+        <td>106,730,465</td>
+        <td>41,076,857</td>
+    </tr>
+
+
+    <tr>
+        <td>6</td>
+        <td>118,888,054</td>
+        <td>116,308,038</td>
+        <td>38,167,327</td>
+    </tr>
+
+</table>
+
+Lock Coarsening优化大幅提升了synchronized的性能, 但同样不会对ReentrantLock优化. 依然, 不开启BiasedLocking优化, 比开启了但是取消了优化的锁, 性能高5%左右. 不过成功应用了BiasedLocking优化, 那性能提升可是8,9倍. 
+
+贴我的测试代码
 ---
-
 
     public class LockObject {
 
