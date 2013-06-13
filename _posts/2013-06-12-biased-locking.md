@@ -32,10 +32,51 @@ Biased Locking 介绍
 4. 取消的锁优化只针对这个锁对象, 而不是代码块. 新建个锁对象, 又可以被优化
 5. 取消过优化的锁, 加锁的消耗比直接不开启UseBiasedLocking, 更大. 大5%左右
 
-对比下synchronized字段和reentrantLock的性能
+对比下synchronized字段和ReentrantLock的性能
 ----
 
-单线程下, 使用ReentrantLock: 53,030,318 ops/sec. 比synchronized慢3倍. 和Martin Thompson的[测试(需翻墙)](http://mechanical-sympathy.blogspot.com/2011/11/biased-locking-osr-and-benchmarking-fun.html)结果不同. Martin测试的结果是synchronized字段的锁只有在2个线程竞争的情况下, 才比reentrantLock更快. 线程数越多, renentrantLock的优势越大.
+单线程下, 使用ReentrantLock: 53,030,318 ops/sec. 比synchronized慢3倍. 和Martin Thompson的[测试(需翻墙)](http://mechanical-sympathy.blogspot.com/2011/11/biased-locking-osr-and-benchmarking-fun.html)结果不同. Martin测试的结果是synchronized字段的锁只有在2个线程竞争的情况下, 才比reentrantLock更快. 线程数越多, ReentrantLock的优势越大.
+
+Martin的测试是在java 1.6下面跑的, 我拿了他的测试代码, 在java 1.7u21 台式机下重新跑了一遍
+
+
+<table>
+    <tr>
+        <td>Threads</td>
+        <td>-UseBiasedLocking</td>
+        <td>+UseBiasedLocking</td>
+        <td>ReentrantLock</td>
+    </tr>
+
+    <tr>
+        <td>1</td>
+        <td>51,945,186</td>
+        <td>567,973,991</td>
+        <td>61,910,074</td>
+    </tr>
+
+    <tr>
+        <td>2</td>
+        <td>30,945,544</td>
+        <td>22,919,502</td>
+        <td>12,111,286</td>
+    </tr>
+
+    <tr>
+        <td>3</td>
+        <td>27,954,956</td>
+        <td>26,095,822</td>
+        <td>32,936,206</td>
+    </tr>
+
+    <tr>
+        <td>4</td>
+        <td>29,484,435</td>
+        <td>28,944,632</td>
+        <td>33,352,128</td>
+    </tr>
+</table>
+
 
 
 贴代码
