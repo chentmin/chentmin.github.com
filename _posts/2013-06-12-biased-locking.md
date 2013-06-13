@@ -23,6 +23,13 @@ Biased Locking 介绍
 
 1. 关闭BiasedLocking优化: 172,198,544 ops/sec
 2. 开启BiasedLocking优化: 1,500,881,768 ops/sec 将近9倍的提升
+3. 不管是否开启BiasedLocking, 使用ReentrantLock: 53,030,318 ops/sec. 比synchronized慢3倍
+
+1.7u21, 在台式机下跑
+
+1. 关闭BiasedLocking优化: 200,601,805 ops/sec
+2. 开启BiasedLocking优化: 1,784,997,099 ops/sec
+3. 不管是否开启BiasedLocking, 使用ReentrantLock: 63,636,002 ops/sec. 比synchronized慢3倍
 
 测试结论:
 
@@ -35,7 +42,7 @@ Biased Locking 介绍
 对比下synchronized字段和ReentrantLock的性能
 ----
 
-单线程下, 使用ReentrantLock: 53,030,318 ops/sec. 比synchronized慢3倍. 和Martin Thompson的[测试(需翻墙)](http://mechanical-sympathy.blogspot.com/2011/11/biased-locking-osr-and-benchmarking-fun.html)结果不同. Martin测试的结果是synchronized字段的锁只有在2个线程竞争的情况下, 才比reentrantLock更快. 线程数越多, ReentrantLock的优势越大.
+Martin Thompson的[测试(需翻墙)](http://mechanical-sympathy.blogspot.com/2011/11/biased-locking-osr-and-benchmarking-fun.html)结果结论: synchronized字段的锁只有在2个线程竞争的情况下, 才比reentrantLock更快. 线程数越多, ReentrantLock的优势越大.
 
 Martin的测试是在java 1.6下面跑的, 我拿了他的测试代码, 在java 1.7u21 台式机下重新跑了一遍
 
